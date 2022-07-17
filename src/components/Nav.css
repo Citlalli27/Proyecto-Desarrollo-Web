@@ -2,7 +2,15 @@
 {
     background-color: black;
     color: #83D95B;
-    height: 120px;
+    height: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+a, a:hover, a:link, a:visited, a:focus, a:active{
+    text-decoration: none;
+    outline: none;
+    color: #83D95B;
 }
 
 .ListaBarra
@@ -10,7 +18,6 @@
     display: flex;
     flex-direction: row;
     list-style: none;
-    font-size: 60px;
-    gap: 55px;
-    justify-content: center;
+    font-size: 30px;
+    justify-content: space-around;
 }

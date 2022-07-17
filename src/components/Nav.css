@@ -1,0 +1,14 @@
+.BarraNavegacion 
+{
+    background-color: black;
+    color: #83D95B;
+    height: 120px;
+}
+
+.ListaBarra
+{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    font-size: 60px;
+}

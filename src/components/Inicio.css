@@ -1,0 +1,44 @@
+.container{
+    margin: auto;
+    background-color: darkolivegreen;
+    display: flex;
+    flex-direction: row;
+}
+
+.aside{
+    margin: 2%;
+    background-color: black;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userProfile{
+    background-color: aquamarine;
+    height: 70px;
+    width: 85%;
+    margin: 30px;
+}
+
+.Recent{
+    background-color: aquamarine;
+    height: 500px;
+    width: 85%;
+    margin: 30px;
+    margin-top: 15px;
+}
+
+.Placeholder{
+    background-color: black;
+    width: 70%;
+    margin: 20px;
+    padding: 0;
+}
+
+.Post{
+    background-color: #82d85a;
+    margin: 30px;
+    padding: 15px;
+    list-style: none;
+}

@@ -1,8 +1,11 @@
 .container{
-    margin: auto;
+    
     background-color: darkolivegreen;
     display: flex;
     flex-direction: row;
+    gap: 50px;
+    justify-content: space-evenly;   
+    
 }
 
 
@@ -16,18 +19,20 @@
 }
 
 .userProfile{
-    background-color: aquamarine;
+    background-color: #82d85a;
     height: 70px;
     width: 85%;
     margin: 30px;
+    font-family: monospace;
 }
 
 .Recent{
-    background-color: aquamarine;
+    background-color: #82d85a;
     height: 500px;
     width: 85%;
     margin: 30px;
     margin-top: 15px;
+    font-family: monospace;
 }
 
 .Placeholder{
@@ -42,4 +47,5 @@
     margin: 30px;
     padding: 15px;
     list-style: none;
+    font-family: monospace;
 }

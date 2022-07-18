@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
+    
     <BrowserRouter>
     <Nav />
       <Routes>
@@ -18,6 +19,7 @@ function App() {
         <Route path="/crypto" element={<Crypto />} />   
       </Routes>
     </BrowserRouter>
+    
   );
 }
 

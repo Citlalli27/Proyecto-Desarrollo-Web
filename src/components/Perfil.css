@@ -1,0 +1,42 @@
+.containerP{
+
+    background-color: darkolivegreen;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: space-evenly;   
+}
+
+#circulo{
+   
+    margin-top: 80px;
+    height:350px;
+    width:350px;
+    background:black;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:350px;
+
+}
+
+
+.Placeholder{
+    background-color: black;
+    margin: 20px;
+    width: 1100px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.Info{
+    background-color: #82d85a;
+    margin: 30px;
+    padding: 15px;
+    list-style: none;
+    font-family: monospace;
+    font-size: 22px;
+    text-align: center;
+
+    
+}
+

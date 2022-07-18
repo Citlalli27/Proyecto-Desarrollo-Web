@@ -2,9 +2,11 @@
 {
     background-color: black;
     color: #83D95B;
-    height: 70px;
+    height: 90px;
     padding-top: 10px;
     padding-bottom: 10px;
+    font-family: monospace;
+    
 }
 
 a, a:hover, a:link, a:visited, a:focus, a:active{
@@ -18,7 +20,7 @@ a, a:hover, a:link, a:visited, a:focus, a:active{
     display: flex;
     flex-direction: row;
     list-style: none;
-    font-size: 30px;
+    font-size: 50px;
     justify-content: space-around;
     font-weight: bold;
 }

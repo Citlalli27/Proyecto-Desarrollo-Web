@@ -1,0 +1,44 @@
+.containerP{
+
+    background-color: darkolivegreen;
+    height: 800px;
+  
+}
+
+#grafica{
+   
+    margin-top: 80px;
+    height:450px;
+    width:950px;
+    background:rgb(255, 255, 255);
+    margin-left: 80px;
+
+
+}
+
+#containerAmbos
+{
+    background-color: black;
+    display: flex;
+    margin-top: 80px;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 80px;
+    width: 1800px;
+    gap: 50px;
+}
+
+
+#seleccionCrypto{
+    background-color: #82d85a;
+    margin-top: 80px;
+    padding: 15px;
+    height: 450px;
+    padding-top: 200px;
+    list-style: none;
+    font-family: monospace;
+    font-size: 50px;
+    color: black;
+    text-align: center;
+}
+

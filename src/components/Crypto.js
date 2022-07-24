@@ -8,6 +8,7 @@ function Crypto() {
     <div id="containerAmbos">
       <div id="grafica"></div>
       <div id="seleccionCrypto">SELECCIONA LA CRYPTO</div>
+      
 
     </div>
   </div>

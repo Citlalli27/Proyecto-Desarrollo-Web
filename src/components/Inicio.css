@@ -1,51 +1,79 @@
-.container{
+#inicio-izq
+{
+    background-color: rgb(31, 31, 31);
+    width: 25%;
+    margin-left: 10%;
+    margin-top: 2%;
     
-    background-color: darkolivegreen;
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
-    justify-content: space-evenly;   
+}
+
+#AXS
+{
+    color: black;
+    background-color: #83D95B;
+    text-align: center;
+    font-family: monospace;
+    font-size: 48px;
+    text-align: center;
+    font-weight: bold;
+    
     
 }
 
+#add-btn
+{
+    color: black;
+    background-color:"#83D95B";
+    text-align: center;
+    font-family: monospace;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 35%;
+    margin-top: 15%;
+    width: 100%;
+    height: 20%;
+}
 
-.aside{
-    margin: 2%;
-    background-color: black;
-    width: 30%;
+#AXS2
+{
+    color: rgb(53, 64, 33);
+    background-color: rgb(53, 64, 33);
+    text-align: center;
+    font-family: monospace;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15%;
+}
+
+#recuadro-der
+{
+    background-color: rgb(31, 31, 31);
+    width: 60%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
+    margin-bottom: 5%;
+    height: fit-content;
+}
+
+#inicio
+{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: rgb(53, 64, 33);
+   
+    width:auto;
+    height: auto;
+
 }
 
-.userProfile{
-    background-color: #82d85a;
-    height: 70px;
-    width: 85%;
-    margin: 30px;
+#blogList
+{
+    background-color: #83D95B;
     font-family: monospace;
+    font-weight: bold;
+    margin-top: 5%;
+    font-size: 18px;
+    width: 1000px;
 }
 
-.Recent{
-    background-color: #82d85a;
-    height: 500px;
-    width: 85%;
-    margin: 30px;
-    margin-top: 15px;
-    font-family: monospace;
-}
-
-.Placeholder{
-    background-color: black;
-    width: 70%;
-    margin: 20px;
-    padding: 0;
-}
-
-.Post{
-    background-color: #82d85a;
-    margin: 30px;
-    padding: 15px;
-    list-style: none;
-    font-family: monospace;
-}

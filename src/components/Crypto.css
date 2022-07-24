@@ -1,6 +1,6 @@
 .containerP{
 
-    background-color: darkolivegreen;
+    background-color: rgb(53, 64, 33);
     height: 800px;
   
 }
@@ -18,7 +18,7 @@
 
 #containerAmbos
 {
-    background-color: black;
+    background-color:rgb(31, 31, 31);
     display: flex;
     margin-top: 80px;
     margin-left: 80px;

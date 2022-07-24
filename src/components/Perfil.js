@@ -4,8 +4,7 @@ import './Perfil.css';
 function Perfil() {
   return (
     <div className='containerP'>
-      
-      <div id="circulo"></div>
+
       <ul className='Placeholder'>
         <li className='Info'>
         CORREO

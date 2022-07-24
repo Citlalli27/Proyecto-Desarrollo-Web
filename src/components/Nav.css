@@ -20,7 +20,7 @@ a, a:hover, a:link, a:visited, a:focus, a:active{
     display: flex;
     flex-direction: row;
     list-style: none;
-    font-size: 50px;
+    font-size: 40px;
     justify-content: space-around;
     font-weight: bold;
 }

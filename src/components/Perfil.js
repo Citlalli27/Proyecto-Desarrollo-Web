@@ -21,11 +21,10 @@ function Perfil() {
         <li className='Info'>
         MONEDA (USD/MX)
         </li>
-        <li className='Info'>
-        ELIMINAR CUENTA
-        </li>
       </ul>
-    
+
+      <button type="button" class="btn btn-dark btn-block mb-4" id='boton_borrar'>ELIMINAR CUENTA</button>
+
     </div>
   )
 }

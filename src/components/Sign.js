@@ -1,10 +1,11 @@
 import React from 'react'
-import './Sign.css';
+import './Entry.css';
 
 function Sign() {
   return (
     
-    <form className='back'>
+    <div id='back'>
+    <form id='box'>
   <div class="form-outline mb-4">
     <input type="email" id="form2Example1" class="form-control" />
     <label class="form-label" for="form2Example1">Email address</label>
@@ -30,9 +31,10 @@ function Sign() {
     <label class="form-label" for="form2Example2">Currency</label>
   </div>
   
-  <button type="button" class="btn btn-primary btn-block mb-4">Sign up</button>
+  <button type="button" class="btn btn-dark btn-block mb-4">Sign up</button>
 
 </form>
+</div>
   )
 }
 

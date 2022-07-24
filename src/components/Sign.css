@@ -1,0 +1,11 @@
+.back{
+    background-color: darkolivegreen;
+    padding: 5%;
+    margin-top: 5%;
+    margin-left: auto; 
+    margin-right:  auto;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+
+}

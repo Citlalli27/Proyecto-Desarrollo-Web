@@ -6,6 +6,7 @@ import Perfil from "./components/Perfil";
 import Noticias from "./components/Noticias";
 import Crypto from "./components/Crypto";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Sign from "./components/Sign";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <Route path="/" element={<Inicio />} />
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/noticias" element={<Noticias />} /> 
-        <Route path="/crypto" element={<Crypto />} />   
+        <Route path="/crypto" element={<Crypto />} />
+        <Route path="/sign" element={<Sign />} />   
       </Routes>
     </BrowserRouter>
     

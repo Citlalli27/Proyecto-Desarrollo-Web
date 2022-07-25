@@ -7,7 +7,7 @@
 
 #box{
     background-color: darkolivegreen;
-    padding: 5%;
+    padding: 3%;
     padding-bottom: 7%;
     margin-left: auto; 
     margin-right:  auto;
@@ -31,6 +31,18 @@
     color: darkolivegreen;
     font-size: 25px;
     width: 50%;
+    margin-left: auto; 
+    margin-right:  auto;
+}
+
+#link{
+    margin-left: auto; 
+    margin-right:  auto;
+}
+
+#img{
+    margin: 2%;
+    width: 35%;
     margin-left: auto; 
     margin-right:  auto;
 }

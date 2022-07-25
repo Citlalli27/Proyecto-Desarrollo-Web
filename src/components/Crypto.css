@@ -1,31 +1,24 @@
 .containerP{
-
     background-color: rgb(53, 64, 33);
-    height: 800px;
-  
+    height: auto;
+    width: auto;  
 }
 
 #grafica{
-   
-    margin-top: 80px;
-    height:450px;
-    width:950px;
     background:rgb(255, 255, 255);
-    margin-left: 80px;
-
-
+    width: 70%;
+    margin: 5%;
 }
 
 #containerAmbos
 {
     background-color:rgb(31, 31, 31);
     display: flex;
-    margin-top: 80px;
-    margin-left: 80px;
-    margin-right: 80px;
-    margin-bottom: 80px;
-    width: 1800px;
-    gap: 50px;
+    width: 80%;
+    margin-top: 3%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 

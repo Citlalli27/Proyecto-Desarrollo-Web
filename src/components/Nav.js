@@ -8,7 +8,7 @@ function Nav() {
             <li> <a href="/" > INICIO </a></li>
             <li> <a href="/crypto" > CRYPTO </a></li>
             <li> <a href="/perfil" > PERFIL </a></li>
-            <li> <a href="/sign" > SIGN UP </a></li>
+            <li> <a href="/sign" > LOG OUT </a></li>
         </ul>        
     </div>
   )

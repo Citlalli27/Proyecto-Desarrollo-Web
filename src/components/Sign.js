@@ -2,17 +2,21 @@ import React, {useState} from 'react'
 import { Check } from 'react-bootstrap-icons';
 import image from "../img/logo.png";
 import './Entry.css';
+import axios from"axios";
 
 function Sign() {
 
-  const [email,setEmail] = useState("")
-  const [password,setPassword] = useState("")
-  const [username,setUsername] = useState("")
-  const [language,setLanguage] = useState("")
-  const [currency,setCurrency] = useState("")
+  const [errors,setErrors] = useState(false)
+  const [errMessage,setErrMessage] = useState("")
 
-  const emailChangeHandler = (e) => {
-    setEmail(e.target.value)
+  const [correo,setCorreo] = useState("")
+  const [password,setPassword] = useState("")
+  const [userName,setUserName] = useState("")
+  const [idioma,setIdioma] = useState("")
+  const [moneda,setMoneda] = useState("")
+
+  const correoChangeHandler = (e) => {
+    setCorreo(e.target.value)
 }
 
 const passwordChangeHandler = (e) => {
@@ -20,27 +24,61 @@ const passwordChangeHandler = (e) => {
     
 }
 
-const usernameChangeHandler = (e) =>{
-    setUsername(e.target.value)
+const userNameChangeHandler = (e) =>{
+    setUserName(e.target.value)
 }
 
-const languageChangeHandler = (e) =>{
-    setLanguage(e.target.value)
+const idiomaChangeHandler = (e) =>{
+    setIdioma(e.target.value)
 }
 
-const currencyChangeHandler = (e) =>{
-  setCurrency(e.target.value)
+const monedaChangeHandler = (e) =>{
+  setMoneda(e.target.value)
 }
 
 const addProfile = () => {
 
     const newProf = {
-        email: email,
+        correo: correo,
         password: password,
-        username: username,
-        language: language,
-        currency: currency
+        username: userName,
+        idioma: idioma,
+        moneda: moneda
     }
+  }
+
+  const registerUser = (e) => {
+    e.preventDefault()
+    axios.post("https://cryptoblog-d.herokuapp.com/users",{
+        correo: correo,
+        password: password,
+        userName: userName,
+        idioma: idioma,
+        moneda: moneda
+    })
+    .then(response => {
+      console.log(` Response: ${response}`)
+      if (response.data.err){
+        setErrors(true)
+        setErrMessage(response.data.message)
+      }
+      {/*else {
+        console.log("navigate")
+            navigate(from,{replace:true})
+      }*/}
+      setCorreo("")
+      setPassword("")
+      setUserName("")
+      setIdioma("")
+      setMoneda("")
+
+    })
+    .catch(error => {
+      console.log(error)
+    })
+
+   // authCtx.login()
+   // navigate(from,{replace:true})
   }
 
   return (
@@ -51,7 +89,7 @@ const addProfile = () => {
     <img id='img' src={image} />
 
   <div class="form-outline mb-4">
-    <input type="email" id="form2Example1 email" class="form-control"  value={email} onChange={emailChangeHandler} placeholder="name@example.com"/>
+    <input type="email" id="form2Example1 email" class="form-control"  value={correo} onChange={correoChangeHandler} placeholder="name@example.com"/>
     <label class="form-label" for="form2Example1">Email address</label>
   </div>
 
@@ -61,21 +99,21 @@ const addProfile = () => {
   </div>
 
   <div class="form-outline mb-4">
-    <input type="email" id="form2Example1 username" class="form-control" value={username} onChange={usernameChangeHandler} placeholder="Username"/>
+    <input type="email" id="form2Example1 username" class="form-control" value={userName} onChange={userNameChangeHandler} placeholder="Username"/>
     <label class="form-label" for="form2Example1">Username</label>
   </div>
 
   <div class="form-outline mb-4">
-    <input type="email" id="form2Example1 language" class="form-control" value={language} onChange={languageChangeHandler} placeholder="English"/>
+    <input type="email" id="form2Example1 language" class="form-control" value={idioma} onChange={idiomaChangeHandler} placeholder="English"/>
     <label class="form-label" for="form2Example1">Language</label>
   </div>
 
   <div class="form-outline mb-4">
-    <input type="email" id="form2Example1 currency" class="form-control" value={currency} onChange={currencyChangeHandler} placeholder="USD/MXN"/>
+    <input type="email" id="form2Example1 currency" class="form-control" value={moneda} onChange={monedaChangeHandler} placeholder="USD/MXN"/>
     <label class="form-label" for="form2Example1">Currency</label>
   </div>
   
-  <button type="button" class="btn btn-dark btn-block mb-4" onClick={addProfile}>Sign up</button>
+  <button type="button" class="btn btn-dark btn-block mb-4" onClick={registerUser}>Sign up</button>
 
 </form>
 </div>

@@ -1,28 +1,42 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from "axios";
 import './Perfil.css';
 
 function Perfil() {
+  {/*useEffect(() => {
+    getProfile();
+  }, []);
+
+  const [data, setData] = useState([]);
+
+  const getProfile = () => {
+    axios.get("https://cryptoblog-d.herokuapp.com/profile/:user").then((response) => {
+      console.log(response);
+      setData(response.data);
+    });
+  };*/}
+
+
   return (
     <div className='containerP'>
-
-      <ul className='Placeholder'>
+                  <ul className='Placeholder'>
         <li className='Info'>
         CORREO
         </li>
         <li className='Info'>
-        CONTRASEÑA
+        PASSWORD
         </li>
         <li className='Info'>
-        NOMBRE DE USUARIO
+        USERNAME
         </li>
         <li className='Info'>
         IDIOMA
         </li>
         <li className='Info'>
-        MONEDA (USD/MX)
+        MONEDA
         </li>
-      </ul>
-
+        </ul>
+        
       <button type="button" class="btn btn-dark btn-block mb-4" id='boton_borrar'>ELIMINAR CUENTA</button>
 
     </div>

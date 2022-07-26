@@ -1,12 +1,18 @@
 import React, {useState} from 'react'
 
 function RecuadroPublicar(props) {
-  
-  const [todo,setTodo] = useState("")
+ 
+  const [todo,setTodo] = useState("");
 
-  function getTodo(e) {
+ /*function getTodo(e) {
     setTodo(e.target.value)
-  }
+ }*/
+
+  const getTodo = (e) => {
+    setTodo(e.target.value);
+  };
+
+
   
   return (
 
@@ -19,9 +25,12 @@ function RecuadroPublicar(props) {
         id="new-Blog" 
         rows="10" 
         placeholder="Publicar nuevo blog" 
-        value={todo}
-        onChange={getTodo}></textarea>
-        <button id="add-btn" class="btn btn-success" style={{backgroundColor:'#83D95B'}} 
+        onChange={getTodo}
+        value={todo}></textarea>
+        <button 
+        id="add-btn" 
+        class="btn btn-success" 
+        style={{backgroundColor:'#83D95B'}} 
         onClick={() => {
           props.agregar(todo)
           setTodo("")

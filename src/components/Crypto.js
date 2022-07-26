@@ -6,8 +6,8 @@ function Crypto() {
     <div className='containerP'>
     
     <div id="containerAmbos">
-      <div id="grafica"></div>
-      <div id="seleccionCrypto">SELECCIONA LA CRYPTO</div>
+    <div id="grafica"></div>
+    <div id="seleccionCrypto">SELECCIONA LA CRYPTO</div>
       
 
     </div>

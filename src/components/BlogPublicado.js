@@ -8,9 +8,9 @@ function BlogPublicado(props) {
         {props.datos.map((todo) => (
 
                 <li
-                className="list-group-item d-flex justify-content-between align-items-center"
-                key={todo.id} id='blogList'>
-                <span>{todo.title}</span>
+                className="list-group-item d-flex justify-content-between align-items-center blogList"
+                key={todo._id} id={todo._id} >
+                <span>{todo.postContent}</span>
                 <i className="bi bi-trash3-fill" onClick={()=>props.eliminar(todo)}  ></i>
                 </li>
 

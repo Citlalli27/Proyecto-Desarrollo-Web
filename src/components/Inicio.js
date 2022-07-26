@@ -1,12 +1,13 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import './Inicio.css';
 import RecuadroPublicar from './RecuadroPublicar';
 import BlogPublicado from './BlogPublicado';
 import { v4 as uuid } from "uuid";
+import axios from "axios";
 
 function Inicio() {
   
-const data = [{title: "Estudiar",id:uuid()},
+/*const data = [{title: "Estudiar",id:uuid()},
               {title: "Hacer la Tarea",id:uuid()},
               {title: "Lavar el carro",id:uuid()}]
 
@@ -17,7 +18,33 @@ function agregarTodo(newTodo) {
   setTodos(function(prev) {
     return [...prev,{title: newTodo,id:uuid()}]
   })
-}
+}*/
+
+const [todos, setTodos] = useState([]);
+
+useEffect(()=>{
+
+  axios.get("https://cryptoblog-d.herokuapp.com/posts")
+  .then(res => {
+    console.log(res.data)
+    setTodos(res.data)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+
+},[])
+
+const agregarTodo = (newTodo) => {
+  axios.post("https://cryptoblog-d.herokuapp.com/newpost",{postContent:newTodo}).then(res=>{
+    
+  setTodos((prev) => [...prev, res.data]);
+
+  }).catch(err => {
+    console.log(err)
+  })
+  
+};
 
 const deleteTodo = (todo) => {
   setTodos((prev) => prev.filter((prev) => prev.id !== todo.id));

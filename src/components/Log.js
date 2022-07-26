@@ -32,12 +32,12 @@ const profile = () => {
     <img id='img' src={image} />
 
   <div class="form-outline mb-4">
-    <input type="email" id="form2Example1" class="form-control" value={email} onChange={emailChangeHandler}/>
+    <input type="email" id="form2Example1" class="form-control" value={email} onChange={emailChangeHandler} placeholder="name@example.com"/>
     <label class="form-label" for="form2Example1">Email address</label>
   </div>
 
   <div class="form-outline mb-4">
-    <input type="password" id="form2Example2" class="form-control" value={password} onChange={passwordChangeHandler}/>
+    <input type="password" id="form2Example2" class="form-control" value={password} onChange={passwordChangeHandler} placeholder="Password"/>
     <label class="form-label" for="form2Example2">Password</label>
   </div>
   

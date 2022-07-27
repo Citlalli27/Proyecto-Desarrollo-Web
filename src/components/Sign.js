@@ -49,7 +49,7 @@ const addProfile = () => {
 
   const registerUser = (e) => {
     e.preventDefault()
-    axios.post("https://cryptoblog-d.herokuapp.com/users",{
+    axios.post("http://localhost:4000/users",{
         correo: correo,
         password: password,
         userName: userName,

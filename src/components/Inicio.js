@@ -24,7 +24,7 @@ const [todos, setTodos] = useState([]);
 
 useEffect(()=>{
 
-  axios.get("https://cryptoblog-d.herokuapp.com/posts")
+  axios.get("http://localhost:4000/posts")
   .then(res => {
     console.log(res.data)
     setTodos(res.data)
@@ -36,7 +36,7 @@ useEffect(()=>{
 },[])
 
 const agregarTodo = (newTodo) => {
-  axios.post("https://cryptoblog-d.herokuapp.com/newpost",{postContent:newTodo}).then(res=>{
+  axios.post("http://localhost:4000/newpost",{postContent:newTodo}).then(res=>{
     
   setTodos((prev) => [...prev, res.data]);
 

@@ -5,7 +5,8 @@ var cors = require("cors");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose")
 const User = require ("./model/users")
-const Post = require ("./model/posts")
+const Post = require ("./model/posts");
+const post = require("./model/posts");
 
 dotenv.config();
 // Sets up the Express App
@@ -25,7 +26,7 @@ mongoose.connect(process.env.MONGODB_HOST, {
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 
 // CryptoBlogD (TEST DATA)
@@ -126,7 +127,7 @@ catch(err){
 //create new post
 app.post("/newpost",async function(req, res){
  var newpost = req.body;
- const post = new Post(newpost)
+ let post = new Post(newpost)
 
 try{ 
   await post.save()
@@ -134,13 +135,16 @@ try{
 catch(err){
   console.log(err)
 }
- posts.push(newpost);
+ post.push(newpost);
  res.json(newpost);
 
 }); 
 
 // Displays all posts
-app.get("/posts", function(req, res) {
+app.get("/posts", async function(req, res) {
+
+let posts = await Post.find()
+
     return res.json(posts);
   });
 

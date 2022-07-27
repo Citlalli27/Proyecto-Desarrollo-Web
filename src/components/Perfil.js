@@ -11,7 +11,7 @@ function Perfil() {
   const [data, setData] = useState([]);
 
   const getProfile = () => {
-    axios.get("https://cryptoblog-d.herokuapp.com/profile/Citlalli").then((response) => {
+    axios.get("http://localhost:4000/profile/Crypto").then((response) => {
       console.log(response);
       setData(response.data);
     });
@@ -20,7 +20,7 @@ function Perfil() {
   const deleteProfile = () => {
     console.log(data._id)
     console.log(data.userName)
-    axios.post("https://cryptoblog-d.herokuapp.com/delete/Citlalli",{id:data._id}).then(res=>{
+    axios.post("http://localhost:4000/delete/Crypto",{id:data._id}).then(res=>{
 
     }).catch(err => {
       console.log(err)

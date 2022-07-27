@@ -36,10 +36,10 @@ function OpcionesBotones() {
         </div>
 
         <div id="grafica">
-         {imageClicked.uno && <img src={img1} alt="uno" style={{position:'absolute', top:'280px', left:'810px', width:'850px', height:'600px'}}/>}
-         {imageClicked.dos && <img src={img2} alt="dos" style={{position:'absolute', top:'280px', left:'810px', width:'850px', height:'600px'}} />}
-         {imageClicked.tres && <img src={img3} alt="tres" style={{position:'absolute', top:'280px', left:'810px', width:'850px', height:'600px'}}/>}
-         {imageClicked.cuatro && <img src={img4} alt="cuatro" style={{position:'absolute', top:'280px', left:'810px', width:'850px', height:'600px'}} />}
+         {imageClicked.uno && <img src={img1} alt="uno" style={{position:'absolute', top:'180px', left:'610px', width:'750px', height:'500px'}}/>}
+         {imageClicked.dos && <img src={img2} alt="dos" style={{position:'absolute', top:'180px', left:'610px', width:'750px', height:'500px'}} />}
+         {imageClicked.tres && <img src={img3} alt="tres" style={{position:'absolute', top:'180px', left:'610px', width:'750px', height:'500px'}}/>}
+         {imageClicked.cuatro && <img src={img4} alt="cuatro" style={{position:'absolute', top:'180px', left:'610px', width:'750px', height:'500px'}} />}
       </div>
 
         

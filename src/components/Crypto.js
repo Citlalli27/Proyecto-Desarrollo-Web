@@ -1,16 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Crypto.css';
+import OpcionesBotones from './OpcionesBotones';
 
 function Crypto() {
-  return (
-    <div className='containerP'>
-    
-    <div id="containerAmbos">
-      <div id="grafica"></div>
-      <div id="seleccionCrypto">SELECCIONA LA CRYPTO</div>
-      
 
-    </div>
+  return (
+
+    <div className='containerC'>
+      <OpcionesBotones />
+      <div className='cuadro-derecha'> </div>
+
   </div>
   )
 }

@@ -21,4 +21,4 @@ function BlogPublicado(props) {
   )
 }
 
-export default BlogPublicado
+export default BlogPublicado;

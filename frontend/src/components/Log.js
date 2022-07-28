@@ -19,7 +19,7 @@ const passwordChangeHandler = (e) => {
 const profile = () => {
 
   const prof = {
-      email: email,
+      correo: correo,
       password: password
   }
 }

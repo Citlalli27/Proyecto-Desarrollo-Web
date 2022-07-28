@@ -5,7 +5,7 @@ import './Entry.css';
 
 function Log() {
 
-  const [email,setEmail] = useState("")
+  const [correo,setEmail] = useState("")
   const [password,setPassword] = useState("")
 
   const emailChangeHandler = (e) => {
@@ -32,7 +32,7 @@ const profile = () => {
     <img id='img' src={image} />
 
   <div class="form-outline mb-4">
-    <input type="email" id="form2Example1" class="form-control" value={email} onChange={emailChangeHandler} placeholder="name@example.com"/>
+    <input type="email" id="form2Example1" class="form-control" value={correo} onChange={emailChangeHandler} placeholder="name@example.com"/>
     <label class="form-label" for="form2Example1">Email address</label>
   </div>
 

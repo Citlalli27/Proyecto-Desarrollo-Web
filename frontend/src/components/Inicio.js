@@ -42,7 +42,15 @@ const agregarPost = (newTodo) => {
 };
 
 const deletePost = (todo) => {
-  setTodos((prev) => prev.filter((prev) => prev.id !== todo.id));
+  console.log(todo._id)
+
+    axios.post("http://localhost:4000/deletepost",{id:todo._id}).then(res=>{
+      
+    setTodos((prev) => prev.filter((prev) => prev._id !== todo._id));
+
+    }).catch(err => {
+      console.log(err)
+    })
 };
 
   return (

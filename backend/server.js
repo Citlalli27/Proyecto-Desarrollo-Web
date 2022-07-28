@@ -205,6 +205,19 @@ app.post("/delete", verify, async function(req, res){
 
 })
 
+//elimina post
+app.post("/deletepost", verify, async function(req, res){
+
+  let deletepost = await Publicaciones.findById(req.body.id)
+  if (deletepost){
+    await deletepost.delete();
+    res.json({msg:"Post deleted"})
+  }
+  else{
+    return res.json({msg:"Contacta a soporte"});
+  }
+
+})
 
 
 // Starts the server to begin listening

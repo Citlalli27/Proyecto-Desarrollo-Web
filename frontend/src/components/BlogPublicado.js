@@ -10,7 +10,7 @@ function BlogPublicado(props) {
                 <li
                 className="list-group-item d-flex justify-content-between align-items-center"
                 key={todo.id} id='blogList'>
-                <span>{todo.title}</span>
+                <span>{todo.postContent}</span>
                 <i className="bi bi-trash3-fill" onClick={()=>props.eliminar(todo)}  ></i>
                 </li>
 

@@ -2,23 +2,18 @@ import React,{useState, useEffect} from 'react'
 import './Inicio.css';
 import RecuadroPublicar from './RecuadroPublicar';
 import BlogPublicado from './BlogPublicado';
+import Nav from "./Nav";
+import Perfil from "./Perfil";
+import Crypto from "./Crypto";
 import { v4 as uuid } from "uuid";
 import axios from "axios";
 
 function Inicio() {
-  
-/*const data = [{title: "Estudiar",id:uuid()},
-              {title: "Hacer la Tarea",id:uuid()},
-              {title: "Lavar el carro",id:uuid()}]
 
-const [todos,setTodos] = useState(data)
-  
-function agregarTodo(newTodo) {
-  
-  setTodos(function(prev) {
-    return [...prev,{title: newTodo,id:uuid()}]
-  })
-}*/
+const token = localStorage.getItem("token")
+const headers = {'auth_key': token}
+
+console.log(`Headers ${headers.auth_key}`)
 
 const [todos, setTodos] = useState([]);
 
@@ -35,7 +30,7 @@ useEffect(()=>{
 
 },[])
 
-const agregarTodo = (newTodo) => {
+const agregarPost = (newTodo) => {
   axios.post("http://localhost:4000/newpost",{postContent:newTodo}).then(res=>{
     
   setTodos((prev) => [...prev, res.data]);
@@ -46,16 +41,16 @@ const agregarTodo = (newTodo) => {
   
 };
 
-const deleteTodo = (todo) => {
+const deletePost = (todo) => {
   setTodos((prev) => prev.filter((prev) => prev.id !== todo.id));
 };
 
   return (
     
     <div id='inicio'>
-      <RecuadroPublicar agregar={agregarTodo}/>
+      <RecuadroPublicar agregar={agregarPost}/>
       <div id='recuadro-der'>
-      <BlogPublicado datos={todos} eliminar={deleteTodo}/>
+      <BlogPublicado datos={todos} eliminar={deletePost}/>
       </div>
     
     </div>

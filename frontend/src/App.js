@@ -7,9 +7,15 @@ import Perfil from "./components/Perfil";
 import Crypto from "./components/Crypto";
 import Sign from "./components/Sign";
 import Log from "./components/Log";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useLocation, BrowserRouter, Routes, Route } from "react-router-dom";
+import { useContext } from "react";
+import RequireAuth from "./components/RequireAuth";
+import AuthContext from "./store/auth-context";
 
 function App() {
+
+  const authCtx = useContext(AuthContext);
+
   return (
     
     <BrowserRouter>

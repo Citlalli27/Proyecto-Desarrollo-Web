@@ -77,3 +77,8 @@
     width: 230%;
 }
 
+#todos{
+    display: flex;
+    flex-direction: column-reverse;
+}
+

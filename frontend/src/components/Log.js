@@ -1,12 +1,23 @@
-import React, {useState} from 'react'
+import React, { useContext, useState} from 'react'
 import { NavLink,useNavigate,useLocation } from "react-router-dom";
 import image from "../img/logo.png";
 import './Entry.css';
+import AuthContext from "../store/auth-context";
+import axios from "axios";
 
 function Log() {
 
   const [correo,setEmail] = useState("")
   const [password,setPassword] = useState("")
+  const [errors,setErrors] = useState(false)
+  const [errMessage,setErrMessage] = useState("")
+
+  const authCtx = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  // authCtx.
 
   const emailChangeHandler = (e) => {
     setEmail(e.target.value)
@@ -23,6 +34,32 @@ const profile = () => {
       password: password
   }
 }
+
+/*axios.post("http://localhost:4000/login", {
+  email: email,
+  password: password,
+})
+.then((response) => {
+  console.log(`Respuesta de Login backend: ${response.data.token}`)
+
+
+  if (response.data.err){
+    setErrors(true)
+    setErrMessage(response.data.message)
+  }
+  else {
+    authCtx.login(response.data.token,response.data.expiresIn)
+    navigate(from,{replace:true})
+  }
+
+})
+.catch((err) => {
+  console.log(err);
+});
+
+// authCtx.login()
+// navigate(from,{replace:true})
+};*/
 
   return (
     

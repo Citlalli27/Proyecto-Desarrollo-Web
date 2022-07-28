@@ -5,7 +5,7 @@ var cors = require("cors");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose")
 const User = require ("./model/users")
-const Post = require ("./model/posts");
+const Publicaciones = require ("./model/posts");
 const post = require("./model/posts");
 
 dotenv.config();
@@ -127,7 +127,7 @@ catch(err){
 //create new post
 app.post("/newpost",async function(req, res){
  var newpost = req.body;
- let post = new Post(newpost)
+ let post = new Publicaciones(newpost)
 
 try{ 
   await post.save()
@@ -143,7 +143,7 @@ catch(err){
 // Displays all posts
 app.get("/posts", async function(req, res) {
 
-let posts = await Post.find()
+let posts = await Publicaciones.find()
 
     return res.json(posts);
   });

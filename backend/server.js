@@ -8,7 +8,7 @@ const User = require ("./model/users")
 const Publicaciones = require ("./model/posts");
 //const bcrypt = require("bcrypt");
 //const jwt = require("jsonwebtoken");
-const verify = require("./midware/verifyAccess");
+// const verify = require("./midware/verifyAccess");
 
 
 dotenv.config();
@@ -190,7 +190,7 @@ let publicaciones = await Publicaciones.find()
 
   // deletes account
 
-app.post("/delete", verify, async function(req, res){
+app.post("/delete", async function(req, res){
   /*var chosen = req.params.userName;
   const profile = await User.findOne(chosen)
   console.log("delete flag")*/
@@ -206,7 +206,7 @@ app.post("/delete", verify, async function(req, res){
 })
 
 //elimina post
-app.post("/deletepost", verify, async function(req, res){
+app.post("/deletepost", async function(req, res){
 
   let deletepost = await Publicaciones.findById(req.body.id)
   if (deletepost){

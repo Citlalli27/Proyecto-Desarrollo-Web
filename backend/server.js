@@ -6,13 +6,16 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose")
 const User = require ("./model/users")
 const Publicaciones = require ("./model/posts");
-const post = require("./model/posts");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const verify = require("./midware/verifyAccess");
+
 
 dotenv.config();
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000;
 
 //DB connection 
 
@@ -28,8 +31,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
+/////////De aquí pa abajo vienen las rutas
 
-// CryptoBlogD (TEST DATA)
+// CryptoBlogD (TEST DATA) información dummy para pruebas
 // =============================================================
 /*var users = [
   {
@@ -71,6 +75,45 @@ app.get("/", function(req, res) {
 });
 
 
+//codigo para gestionar el login
+app.post("/login", async (req, res) => {
+  let correo = req.body.correo; 
+  let plainpassword = req.body.password;
+  console.log(`Login data: ${req.body.email}  ${req.body.password}`)
+
+  let user = await User.findOne({ correo: correo });
+
+  if (!user) {
+    res.json({
+      message: "User or Password is incorrect",
+      code: "UPI",
+      err: true,
+    });
+  } else {
+    let valid = await bcrypt.compareSync(plainpassword, user.password);
+
+    if (valid) {
+      const today = new Date();
+      const expiresDate = new Date();
+
+      expiresDate.setDate(today.getDate() + 1);
+
+      let token = jwt.sign({ id: user.correo }, process.env.SECRET, {
+        expiresIn: "1d",
+      });
+      console.log(token);
+      res.json({ token: token, expiresIn: expiresDate });
+    } else {
+      res.json({
+        message: "User or Password is incorrect",
+        code: "UPI",
+        err: true,
+      });
+    }
+  }
+});
+
+
 // Displays all users
 app.get("/profile", async function(req, res) {
   const profiles = await User.find();
@@ -105,57 +148,56 @@ app.get("/profile/:user", async function(req, res) {
 app.post("/users", async function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
-  var newuser = req.body;
+  //var newuser = req.body;
+  //console.log(newuser);
+  let user = new User(req.body)
+  let exists = await User.findOne({ correo: user.correo });
+  console.log(exists);
 
-  // Using a RegEx Pattern to remove spaces from newCharacter
-  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-  //newuser.userName = newuser.name.replace(/\s+/g, "").toLowerCase();
+  if (!exists) {
+    user.password = bcrypt.hashSync(user.password, 10);
+    await user.save();
+    res.json({ message: "User created", code: "UC", err: false });
+  } else {
+    res.json({ message: "User already exists", code: "UAE", err: true });
+  }
 
-  console.log(newuser);
-
-  const usr = await new User(newuser)
-  try {
-  await usr.save()
-}
-catch(err){
-  console.log(err)
-}
-
-  res.json(newuser);
 });
 
 //create new post
 app.post("/newpost",async function(req, res){
- var newpost = req.body;
- let post = new Publicaciones(newpost)
+ let publicacion = new Publicaciones(req.body)
+ //publicacion.userName = req.userName;// esto no va porque queremos que los post sean publicos para todos
 
 try{ 
-  await post.save()
+  await publicacion.save()
 }
 catch(err){
   console.log(err)
 }
- post.push(newpost);
- res.json(newpost);
+//publicacion.push(newpost); creo que esto causa errores
+ res.json(publicacion);
 
 }); 
 
 // Displays all posts
 app.get("/posts", async function(req, res) {
 
-let posts = await Publicaciones.find()
-
-    return res.json(posts);
+let publicaciones = await Publicaciones.find()
+    console.log(publicaciones)
+    return res.json(publicaciones);
   });
 
-// deletes account
+  // deletes account
 
-app.get("/delete/:user", async function(req, res){
-  var chosen = req.params.user;
-  const profile = await User.findOne({username:chosen})
+app.post("/delete", verify, async function(req, res){
+  var chosen = req.params.userName;
+  const profile = await User.findOne(chosen)
+  console.log("delete flag")
 
   if (profile){
     await profile.delete();
+    res.json({msg:"User deleted"})
   }
   else{
     return res.json({msg:"No existe informacion de este usuario"});
@@ -163,8 +205,12 @@ app.get("/delete/:user", async function(req, res){
 
 })
 
+
+
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
+
+module.exports = app;

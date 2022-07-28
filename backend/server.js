@@ -6,8 +6,8 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose")
 const User = require ("./model/users")
 const Publicaciones = require ("./model/posts");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+//const bcrypt = require("bcrypt");
+//const jwt = require("jsonwebtoken");
 const verify = require("./midware/verifyAccess");
 
 
@@ -74,7 +74,7 @@ app.get("/", function(req, res) {
   res.send("Crypto Blog D API!");
 });
 
-
+/*
 //codigo para gestionar el login
 app.post("/login", async (req, res) => {
   let correo = req.body.correo; 
@@ -112,7 +112,7 @@ app.post("/login", async (req, res) => {
     }
   }
 });
-
+*/
 
 // Displays all users
 app.get("/profile", async function(req, res) {
@@ -201,6 +201,20 @@ app.post("/delete", verify, async function(req, res){
   }
   else{
     return res.json({msg:"No existe informacion de este usuario"});
+  }
+
+})
+
+//elimina post
+app.post("/deletepost", verify, async function(req, res){
+
+  let deletepost = await Publicaciones.findById(req.body.id)
+  if (deletepost){
+    await deletepost.delete();
+    res.json({msg:"Post deleted"})
+  }
+  else{
+    return res.json({msg:"Contacta a soporte"});
   }
 
 })

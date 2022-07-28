@@ -113,7 +113,7 @@ app.post("/users", async function(req, res) {
 
   console.log(newuser);
 
-  const usr = new User(newuser)
+  const usr = await new User(newuser)
   try {
   await usr.save()
 }

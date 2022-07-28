@@ -191,10 +191,10 @@ let publicaciones = await Publicaciones.find()
   // deletes account
 
 app.post("/delete", verify, async function(req, res){
-  var chosen = req.params.userName;
+  /*var chosen = req.params.userName;
   const profile = await User.findOne(chosen)
-  console.log("delete flag")
-
+  console.log("delete flag")*/
+  let profile = await User.findById(req.body.id)
   if (profile){
     await profile.delete();
     res.json({msg:"User deleted"})

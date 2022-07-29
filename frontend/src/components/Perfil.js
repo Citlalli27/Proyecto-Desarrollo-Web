@@ -11,22 +11,24 @@ function Perfil() {
   const [data, setData] = useState([]);
 
   const getProfile = () => {
-    axios.get("http://localhost:4000/profile/lolo").then((response) => {
+    axios.get("http://localhost:4000/profile/AXS").then((response) => {
       console.log(response);
       setData(response.data);
     });
   };
 
-  const deleteProfile = (user) => {
+  const deleteProfile = (userName) => {
     console.log(data._id)
-    console.log(data.userName)
-    axios.post("http://localhost:4000/delete",{id:user._id}).then(res=>{
-
+    console.log(userName.data)
+    axios.post("http://localhost:4000/borra",{userName:'lolo'}).then(res=>{
+      console.log("eliminaoooooooo")
     }).catch(err => {
       console.log(err)
     })
 
   };
+
+  
 
   return (
     <div className='containerP'>

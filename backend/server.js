@@ -155,7 +155,7 @@ app.post("/users", async function(req, res) {
   console.log(exists);
 
   if (!exists) {
-    user.password = bcrypt.hashSync(user.password, 10);
+    //user.password = bcrypt.hashSync(user.password, 10);
     await user.save();
     res.json({ message: "User created", code: "UC", err: false });
   } else {
@@ -190,17 +190,15 @@ let publicaciones = await Publicaciones.find()
 
   // deletes account
 
-app.post("/delete", async function(req, res){
-  /*var chosen = req.params.userName;
-  const profile = await User.findOne(chosen)
-  console.log("delete flag")*/
-  let profile = await User.findById(req.body.id)
+app.post("/borra", async function(req, res){
+  let profile = await User.findOne(req.body.userName)
   if (profile){
     await profile.delete();
     res.json({msg:"User deleted"})
+    console.log("User deleted G")
   }
   else{
-    return res.json({msg:"No existe informacion de este usuario"});
+    return res.json({msg:"No existe informacion de este usuario!!"});
   }
 
 })
